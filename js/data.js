@@ -16,6 +16,7 @@ DataJSON = [
           "label": "  Planni...", 
           "dt": "Tue, 13 Jan 2015 06:30:00",
           "rowId":0,
+          "id":0,
           "customClass": "ganttRed"
         }
       }
@@ -38,6 +39,7 @@ DataJSON = [
           "label": "  Gather...", 
           "dt": "Tue, 13 Jan 2015 06:30:00",
           "rowId":1,
+          "id":0,
           "customClass": "ganttGreen"
         }
       }
@@ -60,6 +62,7 @@ DataJSON = [
           "label": "  Determ...", 
           "dt": "Tue, 15 Jan 2015 06:30:00",
           "rowId":2,
+          "id":0,
           "customClass": "ganttOrange"
         }
       }
@@ -80,7 +83,8 @@ DataJSON = [
           "desc": "Id: 1<br/>Name:   Planning <br/>Date: 2011-11-02 to 2011-11-16", 
           "label": "  Analys...", 
           "dt": "Tue, 17 Jan 2015 06:30:00",
-          "rowId":3
+          "rowId":3,
+          "id":0,
         }
       }
     ]
@@ -102,6 +106,7 @@ DataJSON = [
           "label": "  Implem...", 
           "dt": "Tue, 18 Jan 2015 06:30:00",
           "rowId":4,
+          "id":0,
           "customClass": "ganttRed"
         }
       }
@@ -124,6 +129,7 @@ DataJSON = [
           "label": "  Delive...", 
           "dt": "Tue, 17 Jan 2015 06:30:00",
           "rowId":5,
+          "id":0,
           "customClass": "ganttGreen"
         }
       }

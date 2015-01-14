@@ -6,6 +6,7 @@ function saveModal (dt,rowId){
     "label": $("#taskName").val(),
     "dt":dt,
     "rowId":rowId,
+    "id":DataJSON[rowId].values.length-1,
     "dataObj":{}
   }
   value.dataObj = value;
@@ -38,18 +39,20 @@ function editModal (data){
   $("#taskName").val(data.label)
 }
 
-function editSaveModal (dt,rowId){
+function editSaveModal (data){
   var value = {
     "from": $('#datepickerFrom').val(), 
     "to": $('#datepickerTo').val(), 
-    "desc": "Id: " + (rowId+1) + "<br/>Name: " + $('#datepickerFrom').val() + " " + $('#datepickerTo').val(), 
+    "desc": "Id: " + (data.rowId) + "<br/>Name: " + $('#datepickerFrom').val() + " " + $('#datepickerTo').val(), 
     "label": $("#taskName").val(),
-    "dt":dt,
-    "rowId":rowId,
+    "dt":$('#datepickerFrom').val(),
+    "rowId":data.rowId,
+    "id":data.id,
     "dataObj":{}
   }
   value.dataObj = value;
-  DataJSON[rowId].values.push(value);
+  console.log(data)
+  DataJSON[data.rowId].values[data.id]=value;
   gantReload();
   $modal.modal('hide');
 }
@@ -65,9 +68,9 @@ function editClickFunction(data){
   $modal.on('shown.bs.modal', function () {
     $modal.focus();
     editModal(data);
-    console.log(data)
+
     $("#btn-save").unbind('click').one('click',function(){
-      editSaveModal(data.dt,data.rowId);
+      editSaveModal(data);
     })
   });
 }

@@ -10,9 +10,18 @@ function addClickFunction(dt,rowId){
 	$modal.modal('toggle');
 	$modal.on('shown.bs.modal', function () {
     $modal.focus();
-    $modal.find(".btn.btn-primary").click(function(){
-      console.log(DataJSON,rowId);
-      $modal.modal('hide')
+    $(this).find("#btn-save").click(function(){
+      console.log($('#datepickerFrom').val())
+      DataJSON[rowId].values.push(
+        {
+          "from": $('#datepickerFrom').val(), 
+          "to": $('#datepickerTo').val(), 
+          "desc": "Id: " + rowId + "<br/>Name: " + $('#datepickerFrom').val() + " " + $('#datepickerTo').val(), 
+          "label": $("#taskName").val()
+        }
+      );
+      gantReload();
+      $modal.modal('hide');
     });
   });
 }

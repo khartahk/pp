@@ -94,8 +94,8 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close">Close</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-save">Save</button>
 					</div>
 				</div>
 			</div>
@@ -110,35 +110,35 @@
 		<script src="js/data.js"></script>
 		<script src="js/addClickFunction.js"></script>
 	  <script>
+	  	var gantReload;
 			$(function() {
-				$( "#datepickerFrom" ).datepicker();
-	  			$( "#datepickerTo" ).datepicker();
-	  			$('.selectpicker').selectpicker();
-
+				$("#datepickerFrom" ).datepicker();
+	  		$( "#datepickerTo" ).datepicker();
+	  		$('.selectpicker').selectpicker();
 				"use strict";
 
-				$(".gantt").gantt({
-					source:DataJSON,
-					navigate: "scroll",
-					maxScale: "hours",
-					itemsPerPage: 10,
-					useCookie:true,
-					onItemClick: function(data) {
-						// alert("Item clicked - show some details");
-						console.log(data)
-					},
-					onAddClick: function(dt, rowId) {
-						console.log(dt,rowId)
-						//alert("Empty space clicked - add an item!");
-						addClickFunction(dt,rowId);
-					},
-					onRender: function() {
-						if (window.console && typeof console.log === "function") {
-							console.log("chart rendered");
+				gantReload = function(){
+					$(".gantt").gantt({
+						source:DataJSON,
+						navigate: "scroll",
+						maxScale: "hours",
+						itemsPerPage: 3,
+						onItemClick: function(data) {
+							// alert("Item clicked - show some details");
+							console.log($(this))
+						},
+						onAddClick: function(dt, rowId) {
+							//alert("Empty space clicked - add an item!");
+							addClickFunction(dt,rowId);
+						},
+						onRender: function() {
+							if (window.console && typeof console.log === "function") {
+								console.log("chart rendered");
+							}
 						}
-					}
-				});
-
+					});
+				}
+				gantReload();
 				// $(".gantt").popover({
 				// 	selector: ".bar",
 				// 	title: "I'm a popover",

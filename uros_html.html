@@ -122,14 +122,14 @@
 						source:DataJSON,
 						navigate: "scroll",
 						maxScale: "hours",
-						itemsPerPage: 3,
+						itemsPerPage: 4,
 						onItemClick: function(data) {
-							// alert("Item clicked - show some details");
-							console.log($(this))
+							// alert("Ite clicked - show some details");
+							console.log(data);
+							editClickFunction(data);
 						},
 						onAddClick: function(dt, rowId) {
 							//alert("Empty space clicked - add an item!");
-							console.log(rowId)
 							addClickFunction(dt,rowId);
 						},
 						onRender: function() {
@@ -140,7 +140,7 @@
 					});
 				}
 				gantReload();
-				
+
 				// $(".gantt").popover({
 				// 	selector: ".bar",
 				// 	title: "I'm a popover",

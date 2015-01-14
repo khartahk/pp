@@ -129,6 +129,7 @@
 						},
 						onAddClick: function(dt, rowId) {
 							//alert("Empty space clicked - add an item!");
+							console.log(rowId)
 							addClickFunction(dt,rowId);
 						},
 						onRender: function() {
@@ -139,6 +140,7 @@
 					});
 				}
 				gantReload();
+				
 				// $(".gantt").popover({
 				// 	selector: ".bar",
 				// 	title: "I'm a popover",

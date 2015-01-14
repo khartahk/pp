@@ -1,6 +1,7 @@
 DataJSON = [
   { "name": "Primož",
-    "desc": "Inception","values": 
+    "desc": "Inception",
+    "values": 
     [
       {
         "from": "Tue, 13 Jan 2015 06:30:00", 
@@ -13,7 +14,8 @@ DataJSON = [
     ]
   },
   { "name": "Uroš",
-    "desc": "Inception","values": 
+    "desc": "Inception",
+    "values": 
     [
       {
         "from": "Tue, 13 Jan 2015 06:30:00", 
@@ -25,7 +27,8 @@ DataJSON = [
     ]
   },
   { "name": "Ana",
-    "desc": "Inception","values": 
+    "desc": "Inception",
+    "values": 
     [
       {
         "from": "Tue, 15 Jan 2015 06:30:00", 
@@ -37,7 +40,8 @@ DataJSON = [
     ]
   },
   { "name": "Živa",
-    "desc": "Iteration 1","values": 
+    "desc": "Iteration 1",
+    "values": 
     [
       {
         "from": "Tue, 17 Jan 2015 06:30:00", 
@@ -48,7 +52,8 @@ DataJSON = [
     ]
   },
   { "name": "Jože",
-    "desc": "Iteration 1","values": 
+    "desc": "Iteration 1",
+    "values": 
     [
       {
         "from": "Tue, 18 Jan 2015 06:30:00", 
@@ -57,10 +62,11 @@ DataJSON = [
         "label": "  Implem...", 
         "customClass": "ganttRed"
       }
-    ]
+    ],
   },
   { "name": "Lučka",
-    "desc": "Iteration 1","values": 
+    "desc": "Iteration 1",
+    "values": 
     [
       {
         "from": "Tue, 17 Jan 2015 06:30:00", 

@@ -32,6 +32,13 @@
 				table th:first-child {
 					width: 150px;
 				}
+				#developersList a{
+					display:block;
+					width:100%;
+				}
+				#developersList a:hover{
+					background:#eeeeee;
+				}
 	      /* Bootstrap 3.x re-reset */
 	      .fn-gantt *,
 	      .fn-gantt *:after,
@@ -49,8 +56,8 @@
 					<small>&mdash; Alocate resources in style</small>
 				</h1>
 				<h2>Developers <button id="addDev" type="button" class="nav-link nav-zoomIn">+</button></h2>
-				<ul id="developersList">
-				</ul>
+				<div id="developersList">
+				</div>
 				<h2>
 					WebApp
 				</h2>
@@ -61,14 +68,14 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Add entry</h4>
+						<h4 class="modal-title" id="myModalLabel">Add / edit entry</h4>
 					</div>
 					<div class="modal-body">
 						<form>
 							<div style="margin-bottom:20px">
-								<select class="orm-control selectNames">
+								<!--select class="orm-control selectNames" id="currentName">
 									
-								</select>
+								</select-->
 							</div>
 							<div class="form-group">
 								<input type="taskName" class="form-control" id="taskName" placeholder="Task name">
@@ -107,12 +114,14 @@
 							<div class="form-group">
 								<input type="developerName" class="form-control" id="developerName" placeholder="Developer name">
 							</div>
-
+							<div class="form-group">
+								<input type="developerName" class="form-control" id="developerType" placeholder="Developer Type">
+							</div>
 						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-save">Save</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-save-add-dev">Save</button>
 					</div>
 				</div>
 			</div>
@@ -128,14 +137,14 @@
 					<div class="modal-body">
 						<form>
 							<div class="form-group">
-								<input type="developerName" class="form-control" id="developerName" placeholder="Developer name">
+								<input type="developerNameEdit" class="form-control" id="developerNameEdit" placeholder="Developer name">
 							</div>
 
 						</form>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal" id="btn-close">Close</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-save">Save</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn-save-edit-dev">Save</button>
 					</div>
 				</div>
 			</div>
@@ -163,7 +172,7 @@
 						source:DataJSON,
 						navigate: "scroll",
 						maxScale: "hours",
-						itemsPerPage: 4,
+						itemsPerPage: 20,
 						onItemClick: function(data) {
 							// alert("Ite clicked - show some details");
 							editClickFunction(data);
@@ -177,7 +186,9 @@
 								console.log("chart rendered");
 							}
 						}
+
 					});
+					reloadDevs();
 				}
 				gantReload();
 
@@ -189,7 +200,6 @@
 				// });
 
 				prettyPrint();
-				reloadDevs();
 			});
 	  </script>
     </body>

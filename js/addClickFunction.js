@@ -16,19 +16,26 @@ function saveModal (dt,rowId){
 }
 
 function addClickFunction(dt,rowId){
+
 	var selectData = "";
+	console.log("test");
 	for(var i in DataJSON){
 		selectData = selectData+'<option value="'+i+'">'+DataJSON[i].name+'</option>';
 	}
 	$( ".selectNames" ).html(selectData);
-  // $('#datepickerFrom').datepicker("setDate", Date(dt/1000) );
-  $modal = $('#myModal');
+	//console.log(dt);
+  	//$('#datepickerFrom').datepicker("setDate", Date(dt/1000) );
+  	$modal = $('#myModal');
 	$modal.modal('show');
 	$modal.on('shown.bs.modal', function () {
     $modal.focus();
     $("#btn-save").unbind('click').one('click',function(){
       saveModal(dt,rowId);
     })
+    $("#taskName").val("");
+	$("#datepickerTo").val("");
+	$("#datepickerFrom").val("");
+	$("#taskDescription").val("");
   });
 }
 
@@ -40,19 +47,22 @@ function editModal (data){
 }
 
 function editSaveModal (data){
+  var selectedName = data.rowId;
+  console.log(selectedName);
   var value = {
     "from": $('#datepickerFrom').val(), 
     "to": $('#datepickerTo').val(), 
     "desc": "Id: " + (data.rowId) + "<br/>Name: " + $('#datepickerFrom').val() + " " + $('#datepickerTo').val(), 
     "label": $("#taskName").val(),
     "dt":$('#datepickerFrom').val(),
-    "rowId":data.rowId,
+    "rowId":selectedName,
     "id":data.id,
     "dataObj":{}
   }
   value.dataObj = value;
-  console.log(data)
-  DataJSON[data.rowId].values[data.id]=value;
+  console.log(data);
+  console.log(DataJSON[selectedName]);
+  DataJSON[selectedName].values[data.id]=value;
   gantReload();
   $modal.modal('hide');
 }
